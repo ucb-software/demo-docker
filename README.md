@@ -26,7 +26,12 @@ apt install telnet
 - `docker run --name web-1 -d --rm nginx`: Crea un contenedor NGinx y queda ejecutandose EN SEGUNDO PLANO verificar con `docker ps`, Pero por el `--rm` cuando lo pare se va a eliminar automáticamente
 - `docker run --rm -it alpine`: Ejecuto un alpine de forma INTERACTIVA compatiendo TERMINAL. Pero por el `--rm` cuando lo pare se va a eliminar automáticamente
 - `docker run -d --name web-1 -p 7000:80 nginx`: Crea un contenedor NGINX en segundo plano enlazando el puerto 80 del NGINX dentro del contenedor al puerto 7000 en la maquina HOST.
+- `docker run -d --name web-2 -p 8000:80 -v /workspaces/demo-docker:/usr/share/nginx/html:ro nginx`: Crear un contenedor, en segundo plano, con el nombre web-2. Además enlaza el puerto 8000 de la maquina HOST con el puerto 80 del contenedor (NGIX). Monta un volumen asociando la carpeta de la maquina local `/workspaces/demo-docker` en la carpeta dentro del contenedor `/usr/share/nginx/html` en modo sólo lectura `ro`
 
 ## Tarea: Explicar que hace este comando y por qué funciona.
 
+En linux
 - `docker run -d --name web-2 -p 8000:80 -v /workspaces/demo-docker:/usr/share/nginx/html:ro nginx`
+
+En windows
+- `docker run -d --name web-2 -p 8000:80 -v C:\Users\jperez\Mis\ documentos:/usr/share/nginx/html:ro nginx`
